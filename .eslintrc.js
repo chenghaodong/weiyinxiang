@@ -24,6 +24,20 @@ module.exports = {
   },
   // add your custom rules here
   'rules': {
+    'max-len': ['off'],
+    'consistent-return': ["off"],
+    'no-constant-condition': ["off"],
+    'object-shorthand': ["off"],
+    'import/newline-after-import': ["off"],
+    // don't require .vue extension when importing
+    'import/extensions': ['error', 'always', {
+      'js': 'never',
+      'vue': 'never'
+    }],
+    'prefer-template': ["warn"],
+    'linebreak-style': ["off", "unix"],
+    'no-console': ["warn", { allow: ["warn", "error"] }],
+    "comma-dangle": ["error", "never"],
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       'js': 'never',
