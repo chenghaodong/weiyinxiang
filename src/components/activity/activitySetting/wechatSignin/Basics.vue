@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-pane fade in active" id="home">
+  <div class="tab-pane fade in active">
     <form class="padding_bottom  line-bottom">
       <div class="form-list padding_bottom line-bottom">
         <span class="checkbox">公众号签到关键字</span>
@@ -103,8 +103,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tab-content {
-  min-height: 500px;
+.tab-pane {
+  margin-top: 30px;
 }
 
 .setting .form-list {

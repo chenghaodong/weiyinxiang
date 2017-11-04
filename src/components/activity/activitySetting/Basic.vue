@@ -93,10 +93,6 @@ export default {
       margin-right: 5px;
     }
   }
-  .name {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
 }
 .save-btn {
   width: 140px;
