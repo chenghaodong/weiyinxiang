@@ -28,17 +28,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.page-header {
-  margin-top: 0;
-  margin-bottom: 0;
-  border: none;
-}
 
 .setting {
-  margin-bottom: 30px;
-  background-color: #fff;
-  border: 1px solid #ececec;
-  padding: 25px;
   .title {
     font-size: 18px;
     font-weight: bold;

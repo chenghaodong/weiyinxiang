@@ -25,7 +25,7 @@ export default [{
       name: 'activityList',
       component: ActivityList
     }, {
-      path: 'setting',
+      path: 'setting/:id',
       name: 'activitySetting',
       component: ActivitySetting,
       children: [

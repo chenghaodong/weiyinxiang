@@ -78,47 +78,27 @@
 </template>
 
 <script>
-/* import 'weatherstar-switch/dist/switch.css';
-import Switch from 'weatherstar-switch'; */
-
+import 'weatherstar-switch/dist/switch.css';
+import Switch from 'weatherstar-switch';
 
 export default {
-  name: 'basics'
-/*   created() {
-    const switches = {};
-    const switchConfig = {
-      'checkbox-switch1': this.options('.wx-name', false),
-      'checkbox-switch2': this.options('.wx-company', true),
-      'checkbox-switch3': this.options('.wx-position', false),
-      'checkbox-switch4': this.options('.wx-phone', true),
-      'checkbox-switch5': this.options('.wx-email', true)
-    };
-
-    Object.keys(switchConfig).forEach(function(key) {
-      switches[key] = new Switch(document.querySelector('.' + key), switchConfig[key]);
+  name: 'basics',
+  created() {
+    const el = document.querySelector('.checkbox-switch1');
+    const mySwitch = new Switch(el, {
+      checked: true,
+      onSwitchColor: '#1e96d5'
     });
-    let mySwitch = new Switch(el, options);
+    console.log(mySwitch);
   },
   methods: {
     options(dom, checked) {
-      const el1 = document.querySelector('.checkbox-switch1');
-      const el2 = document.querySelector('.checkbox-switch2');
-      const el3 = document.querySelector('.checkbox-switch3');
-      const el4 = document.querySelector('.checkbox-switch4');
-      const el5 = document.querySelector('.checkbox-switch5');
       return {
         checked: checked,
-        onSwitchColor: '#1e96d5',
-        onChange: isChecked => {
-          if (isChecked) {
-            $(dom + " .hide").addClass("show").removeClass("hide");
-          } else {
-            $(dom + " .show").addClass("hide").removeClass("show");
-          }
-        }
+        onSwitchColor: '#1e96d5'
       };
     }
-  } */
+  }
 };
 </script>
 
