@@ -6,15 +6,21 @@
         活动列表
       </h4>
       <div>
-        <button class="btn btn-info" @click="modalShow = !modalShow"><span class="glyphicon glyphicon-cog icon"></span>创建我的活动</button>
+        <button class="btn btn-info" @click="modalShow = !modalShow">
+          <span class="glyphicon glyphicon-cog icon"></span>创建我的活动</button>
       </div>
     </div>
     <div v-if="activityList.length>0" class="item" v-for="(item, index) in activityList" :key="index">
       <div class="left">
         <p class="name">{{item.name}}</p>
         <p>活动时间：{{item.date}}</p>
-        <p>活动属性：{{item.attribute}}</p>
+        <p>活动属性：
+          <span :class="{free: item.attribute==='免费'}">{{item.attribute}}</span>
+        </p>
         <p>活动地点：{{item.address}}</p>
+        <div class="status">
+          <img :src="item.status" alt="">
+        </div>
       </div>
       <div class="center">
         <div class="user flex1">
@@ -30,25 +36,29 @@
         <div class="manage flex1">
           <router-link :to="{name: 'activitySetting', params: {id: item.id}}" tag="a">
             <div class="btn-bg1">
-              <p><i class="icon iconfont">&#xe60c;</i></p>
+              <p>
+                <i class="icon iconfont">&#xe60c;</i>
+              </p>
               <p>活动管理</p>
             </div>
           </router-link>
         </div>
         <div class="screen flex1">
           <div class="btn-bg2">
-            <p><i class="icon iconfont">&#xe60c;</i></p>
+            <p>
+              <i class="icon iconfont">&#xe60c;</i>
+            </p>
             <p>查看屏幕</p>
           </div>
         </div>
       </div>
     </div>
-    <div v-if="activityList.length>0" class="text-center">
+    <div v-if="activityList.length>0" class="text-center pagenations">
       <b-pagination size="md" align="center" :total-rows="100" v-model="currentPage" :per-page="10">
       </b-pagination>
     </div>
     <b-modal v-model="modalShow">
-        Hello From Modal!
+      Hello From Modal!
     </b-modal>
     <div class="no-data" v-if="!activityList || activityList.length === 0">
       <p>
@@ -60,6 +70,9 @@
 </template>
 
 <script>
+import hasNotBegin from '../../../assets/images/has-not-begin.png';
+import inpress from '../../../assets/images/inpress.png';
+import hasEnd from '../../../assets/images/has-end.png';
 export default {
   name: 'activityList',
   data() {
@@ -76,14 +89,16 @@ export default {
       date: '2017年2月30日',
       attribute: '免费',
       address: '河北市石家庄新华社国际会展中心',
+      status: hasNotBegin,
       person: 10000,
       message: 2000
     }, {
       id: 22,
       name: '这是第二个个轰动名称',
       date: '2017年12月30日',
-      attribute: '免费',
+      attribute: '收费',
       address: '河北市石家庄新华社国际会展中心',
+      status: inpress,
       person: 110000,
       message: 20002
     }, {
@@ -92,6 +107,7 @@ export default {
       date: '2017年12月30日',
       attribute: '免费',
       address: '河北市石家庄新华社国际会展中心b栋',
+      status: hasEnd,
       person: 100030,
       message: 20004
     }];
@@ -128,8 +144,17 @@ export default {
       border-right: 1px solid #ccc;
       width: 45%;
       padding-left: 20px;
+      position: relative;
       .name {
         font-weight: bold;
+      }
+      .free {
+        color: #1e96d5;
+      }
+      .status {
+        position: absolute;
+        top: -14px;
+        right: 20px;
       }
     }
     .center {
@@ -176,6 +201,10 @@ export default {
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
+  }
+  .pagenations {
+    height: 40px;
+    border: 1px solid #ccc;
   }
 }
 </style>

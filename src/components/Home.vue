@@ -45,7 +45,7 @@ export default {
   border: 0;
   height: 44px;
   min-height: 44px;
-  background-color: #1e76d5;
+  background-color: #1e96d5;
 
   .container-fluid {
     padding-left: 0;

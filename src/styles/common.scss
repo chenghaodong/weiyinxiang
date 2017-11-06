@@ -39,3 +39,30 @@ a , a:focus, a:hover{
   border: 1px solid #ececec;
   padding: 25px;
 }
+.pagination {
+  margin-top: 4px;
+  margin-bottom: 0;
+
+  >li {
+    >a,
+    >span {
+      padding: 5px 11px;
+      background: transparent;
+      border: 0;
+    }
+    &.active {
+      a {
+        border-radius: 6px;
+        background-color: #1e96d5;
+      }
+    }
+    &.disabled {
+      a, span {
+        background: transparent;
+        &:hover {
+          background: transparent;
+        }
+      }
+    }
+  }
+}
