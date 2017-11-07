@@ -30,10 +30,6 @@ export default {
 <style lang="scss" scoped>
 
 .setting {
-  .title {
-    font-size: 18px;
-    font-weight: bold;
-  }
   .nav-tabs {
     border-color: #1e96d5;
     padding-left: 16px;

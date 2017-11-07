@@ -2,7 +2,7 @@ body {
   font-family: 微软雅黑, Tahoma, Arial, 宋体;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:  #f2f2f2;
+  background-color:  #fff;
   overflow-x: hidden;
 }
 p {
@@ -10,7 +10,7 @@ p {
 }
 a , a:focus, a:hover{
   text-decoration: none;
-  color: #1e76d5;
+  color: #1e96d5;
 }
 .line-bottom {
   border-bottom: 1px dashed #ccc;
@@ -32,37 +32,70 @@ a , a:focus, a:hover{
   margin-bottom: 0;
   border: none;
 }
-
+.customer-color {
+  color: #1e96d5;
+}
 .setting {
   margin-bottom: 30px;
   background-color: #fff;
   border: 1px solid #ececec;
-  padding: 25px;
+  padding: 0 25px 25px;
+  .title{
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }
-.pagination {
-  margin-top: 4px;
-  margin-bottom: 0;
+.pagenations {
+  position: relative;
+  height: 40px;
+  border: 1px solid #ccc;
+  
+  .pagination {
+    margin-top: 4px;
+    margin-bottom: 0;
 
-  >li {
-    >a,
-    >span {
-      padding: 5px 11px;
-      background: transparent;
-      border: 0;
-    }
-    &.active {
-      a {
-        border-radius: 6px;
-        background-color: #1e96d5;
-      }
-    }
-    &.disabled {
-      a, span {
+    >li {
+      >a,
+      >span {
+        padding: 5px 11px;
         background: transparent;
-        &:hover {
-          background: transparent;
+        border: 0;
+        margin-left: 10px;
+        border-radius: 6px;
+        outline: none;
+
+        &:hover, &:focus {
+          color: #fff;
+          background-color: #1e96d5;
         }
       }
+      &.active {
+        a,span {
+          background-color: #1e96d5;
+          &:hover, &:focus {
+            color: #fff;
+            background-color: #1e96d5;
+          }
+        }
+      }
+      &.disabled {
+        a, span {
+          background: transparent;
+          &:hover {
+            background: transparent;
+          }
+        }
+      }
+    }
+  }
+  .right{
+    position: absolute;
+    right: 20px;
+    top: 9px;
+    .customer-color {
+      font-weight: bold;
     }
   }
 }

@@ -17,6 +17,20 @@
         <button class="btn btn-info">充值</button>
       </div>
     </div>
+    <div class="setting">
+      <p class="title padding_bottom">
+        <span class="glyphicon glyphicon-list-alt"></span> 基础设置
+      </p>
+      <ul id="myTab" class="nav nav-tabs">
+        <router-link :to="{name: 'not-completed'}" tag="li">
+          <a>未完成订单</a>
+        </router-link>
+        <router-link :to="{name: 'completed'}" tag="li">
+          <a>已完成订单</a>
+        </router-link>
+      </ul>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -39,14 +53,11 @@ export default {
 
 <style lang="scss" scoped>
 .recharge {
-  padding: 10px 60px;
-  background-color: #f9f9f9;
   .user {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 20px 80px 40px;
+    background-color: #f9f9f9;
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
 
     .left {
       border-right: 1px solid #ccc;
@@ -90,6 +101,40 @@ export default {
         width: 100px;
         height: 30px;
         background-color: #1e96d5;
+      }
+    }
+  }
+  .setting {
+    padding-left: 80px;
+    padding-right: 80px;
+    border: none;
+    .nav-tabs {
+      li {
+        a {
+          color: #999;
+          border: none;
+          margin: 0;
+          border-bottom: 1px solid #ccc;
+          padding: 6px 24px;
+          height: 32px;
+          &:hover {
+            background-color: transparent;
+            border-bottom: 2px solid #1e96d5;
+            color: #1e96d5;
+          }
+          &:focus {
+            background-color: transparent;
+          }
+        }
+        &.router-link-active {
+          a,
+          a:focus,
+          a:hover {
+            color: #1e96d5;
+            border: none;
+            border-bottom: 2px solid #1e96d5;
+          }
+        }
       }
     }
   }

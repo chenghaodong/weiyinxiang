@@ -34,29 +34,28 @@
       </div>
       <div class="right">
         <div class="manage flex1">
-          <router-link :to="{name: 'activitySetting', params: {id: item.id}}" tag="a">
-            <div class="btn-bg1">
-              <p>
-                <i class="icon iconfont">&#xe60c;</i>
+          <router-link :to="{name: 'activitySetting', params: {id: item.id}}" tag="a" class="link">
+            <div class="btn-bg">
+              <p class="btn-icon">
+                <i class="icon iconfont">&#xe637;</i>
               </p>
               <p>活动管理</p>
             </div>
           </router-link>
         </div>
         <div class="screen flex1">
-          <div class="btn-bg2">
-            <p>
-              <i class="icon iconfont">&#xe60c;</i>
-            </p>
-            <p>查看屏幕</p>
-          </div>
+          <router-link :to="{name: 'activitySetting', params: {id: item.id}}" tag="a" class="link">
+            <div class="btn-bg">
+              <p class="btn-icon">
+                <i class="icon iconfont">&#xe662;</i>
+              </p>
+              <p>查看屏幕</p>
+            </div>
+          </router-link>
         </div>
       </div>
     </div>
-    <div v-if="activityList.length>0" class="text-center pagenations">
-      <b-pagination size="md" align="center" :total-rows="100" v-model="currentPage" :per-page="10">
-      </b-pagination>
-    </div>
+    <Pagenation v-if="activityList.length>0" :total="100" :size="10" :page="5" @changePage="changePages"></Pagenation>
     <b-modal v-model="modalShow">
       Hello From Modal!
     </b-modal>
@@ -70,11 +69,15 @@
 </template>
 
 <script>
+import Pagenation from '@/components/common/Pagenation';
 import hasNotBegin from '../../../assets/images/has-not-begin.png';
 import inpress from '../../../assets/images/inpress.png';
 import hasEnd from '../../../assets/images/has-end.png';
 export default {
   name: 'activityList',
+  components: {
+    Pagenation
+  },
   data() {
     return {
       activityList: [],
@@ -118,12 +121,18 @@ export default {
     },
     hideModal() {
       this.$refs.myModalRef.hide();
+    },
+    changePages(page) {
+      console.log(page);
     }
   }
 };
 </script>
 
 <style  lang="scss" scoped>
+body {
+  background-color: #fff;
+}
 .activity-list {
   padding: 10px 60px;
   .title {
@@ -175,25 +184,27 @@ export default {
       font-size: 24px;
       color: #7b7b7b;
     }
-  }
-  .btn-bg1 {
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    height: 68px;
-    width: 68px;
-    .icon {
-      font-size: 24px;
+    .btn-icon{
+      margin-top: 6px;
     }
-  }
-  .btn-bg2 {
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    height: 68px;
-    width: 68px;
-    .icon {
-      font-size: 24px;
+    .link {
+      color: #999;
+      .btn-bg {
+        margin: 0 auto;
+        border: 1px solid #999;
+        border-radius: 4px;
+        height: 68px;
+        width: 68px;
+        .icon {
+          font-size: 24px;
+        }
+      }
+      &:hover {
+        color: #1e96d5;
+        .btn-bg {
+          border: 1px solid #1e96d5;
+        }
+      }
     }
   }
   .no-data {
@@ -201,10 +212,6 @@ export default {
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
-  }
-  .pagenations {
-    height: 40px;
-    border: 1px solid #ccc;
   }
 }
 </style>
