@@ -1,10 +1,12 @@
 <template>
   <div>
     <p class="page-header">
-      <a>活动列表 > </a>活动管理</p>
+      <a class="customer-color">活动列表 > </a>活动管理
+    </p>
     <div class="setting">
-      <p class="title padding_bottom">
-        <span class="glyphicon glyphicon-list-alt"></span> 签到设置</p>
+      <p class="title padding-bottom">
+        <i class="icon iconfont"> &#xe647;</i> 签到设置
+      </p>
       <ul id="myTab" class="nav nav-tabs">
         <router-link :to="{name: 'how'}" tag="li">
           <a>如何签到</a>
@@ -33,6 +35,7 @@ export default {
   .nav-tabs {
     border-color: #1e96d5;
     padding-left: 16px;
+    height: 27px;
     li {
       a {
         color: #666;
@@ -58,7 +61,7 @@ export default {
           color: #1e96d5;
           border-color: #1e96d5;
           border-bottom-color: transparent;
-          border-bottom: none;
+          background-color: #fff;
         }
       }
     }

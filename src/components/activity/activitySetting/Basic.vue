@@ -3,62 +3,62 @@
     <p class="page-header">
       <a>活动列表 > </a>活动管理</p>
     <div class="setting">
-      <p class="title padding_bottom">
-        <span class="glyphicon glyphicon-list-alt"></span> 基础设置</p>
-      <form class="padding_bottom  line-bottom">
+      <p class="title padding-bottom">
+        <i class="icon iconfont"> &#xe647;</i> 基础设置</p>
+      <form class="padding-bottom  line-bottom">
         <div class="form-list">
           <span class="checkbox"><span class="required">*</span>活动名称</span>
           <input type="text" class="form-control key-input" placeholder="请输入活动名称">
         </div>
-        <div class="form-list padding_top">
+        <div class="form-list padding-top">
           <span class="checkbox"><span class="required">*</span>活动属性</span>
           <input type="text" class="form-control key-input" placeholder="请输入公司名称">
         </div>
-        <div class="form-list padding_top">
+        <div class="form-list padding-top">
           <span class="checkbox"><span class="required">*</span>微信公众号</span>
           <input type="text" class="form-control key-input" placeholder="请输入职位名称">
         </div>
-        <div class="form-list padding_top">
+        <div class="form-list padding-top">
           <span class="checkbox"><span class="required">*</span>活动区域</span>
           <input type="text" class="form-control key-input" placeholder="请输入手机号码">
         </div>
-        <div class="form-list padding_top">
+        <div class="form-list padding-top">
           <span class="checkbox"><span class="required">*</span>活动地点</span>
           <input type="text" class="form-control key-input" placeholder="请输入活动地点">
         </div>
-        <div class="form-list padding_top">
+        <div class="form-list padding-top">
           <span class="checkbox"><span class="required">*</span>开始时间</span>
           <input type="text" class="form-control key-input" placeholder="请输入公司名称">
         </div>
-        <div class="form-list padding_top">
+        <div class="form-list padding-top">
           <span class="checkbox"><span class="required">*</span>结束时间</span>
           <input type="text" class="form-control key-input" placeholder="请输入职位名称">
         </div>
-        <div class="form-list padding_top padding_bottom line-bottom">
+        <div class="form-list padding-top padding-bottom line-bottom">
           <span class="checkbox"><span class="required">*</span>备注</span>
           <input type="text" class="form-control key-input" placeholder="请输入手机号码">
         </div>
-        <div class="form-list padding_top">
+        <div class="form-list padding-top">
           <span class="checkbox"><span class="required">*</span>活动联系人</span>
           <input type="text" class="form-control key-input" placeholder="请输入活动地点">
         </div>
-        <div class="form-list padding_top">
+        <div class="form-list padding-top">
           <span class="checkbox"><span class="required">*</span>联系方式</span>
           <input type="text" class="form-control key-input" placeholder="请输入活动地点">
         </div>
-        <div class="form-list padding_top">
+        <div class="form-list padding-top">
           <span class="checkbox"><span class="required">*</span>邮箱</span>
           <input type="text" class="form-control key-input" placeholder="请输入公司名称">
         </div>
-        <div class="form-list padding_top">
+        <div class="form-list padding-top">
           <span class="checkbox"><span class="required">*</span>QQ/微信号</span>
           <input type="text" class="form-control key-input" placeholder="请输入职位名称">
         </div>
-        <div class="form-list padding_top">
+        <div class="form-list padding-top">
           <span class="checkbox"><span class="required">*</span>公司/组织</span>
           <input type="text" class="form-control key-input" placeholder="请输入职位名称">
         </div>
-        <div class="padding_top padding_bottom">
+        <div class="padding-top padding-bottom">
           <button type="button" class="save-btn">
             保存
           </button>

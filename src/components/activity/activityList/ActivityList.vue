@@ -1,13 +1,13 @@
 <template>
   <div class="activity-list">
     <div class="title">
-      <h4>
-        <span class="glyphicon glyphicon-cog icon"></span>
-        活动列表
-      </h4>
+      <p class="list-tip">
+        <i class="icon iconfont"> &#xe647;</i> 
+        <span>活动列表</span>
+      </p>
       <div>
         <button class="btn btn-info" @click="modalShow = !modalShow">
-          <span class="glyphicon glyphicon-cog icon"></span>创建我的活动</button>
+          <i class="icon iconfont">&#xe64f;</i> 创建我的活动</button>
       </div>
     </div>
     <div v-if="activityList.length>0" class="item" v-for="(item, index) in activityList" :key="index">
@@ -59,10 +59,10 @@
     <b-modal v-model="modalShow">
       Hello From Modal!
     </b-modal>
-    <div class="no-data" v-if="!activityList || activityList.length === 0">
-      <p>
-        <i class="icon iconfont">&#xe60c;</i>
-        此处空空如野，快去创建活动
+    <div class="no-data" v-if="!activityList|| activityList.length === 0">
+      <p class="tip">
+        <i class="icon iconfont">&#xe750;</i>
+        此处空空如野，快去<a class="customer-color">创建活动</a>哦~
       </p>
     </div>
   </div>
@@ -130,16 +130,23 @@ export default {
 </script>
 
 <style  lang="scss" scoped>
-body {
-  background-color: #fff;
-}
 .activity-list {
   padding: 10px 60px;
+  font-size: 14px;
   .title {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
+    .list-tip {
+      i {
+        color: #999;
+      }
+      span {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
   }
   .item {
     border: 1px solid #ccc;
@@ -212,6 +219,18 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
+    .tip {
+      color: #9b9b9b;
+      font-weight: 600;
+      i {
+        font-size: 38px;
+        color: #cdcdcd;
+        margin-right: 18px;
+      }
+      a {
+        cursor: pointer;
+      }
+    }
   }
 }
 </style>

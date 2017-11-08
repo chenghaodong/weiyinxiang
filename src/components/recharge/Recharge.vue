@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="setting">
-      <p class="title padding_bottom">
+      <p class="title padding-bottom">
         <span class="glyphicon glyphicon-list-alt"></span> 基础设置
       </p>
       <ul id="myTab" class="nav nav-tabs">
@@ -101,6 +101,8 @@ export default {
         width: 100px;
         height: 30px;
         background-color: #1e96d5;
+        padding: 0;
+        cursor: pointer;
       }
     }
   }
@@ -109,6 +111,7 @@ export default {
     padding-right: 80px;
     border: none;
     .nav-tabs {
+      height: 27px;
       li {
         a {
           color: #999;

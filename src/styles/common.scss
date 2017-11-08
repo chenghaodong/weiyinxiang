@@ -15,10 +15,10 @@ a , a:focus, a:hover{
 .line-bottom {
   border-bottom: 1px dashed #ccc;
 }
-.padding_bottom {
+.padding-bottom {
   padding-bottom: 30px;
 }
-.padding_top {
+.padding-top {
   padding-top: 30px;
 }
 .padding-left {
@@ -31,20 +31,26 @@ a , a:focus, a:hover{
   margin-top: 0;
   margin-bottom: 0;
   border: none;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 .customer-color {
-  color: #1e96d5;
+  color: #1e96d5 !important;
 }
 .setting {
   margin-bottom: 30px;
   background-color: #fff;
   border: 1px solid #ececec;
   padding: 0 25px 25px;
+  font-size: 14px;
   .title{
     font-size: 18px;
     font-weight: bold;
     padding-top: 20px;
     padding-bottom: 20px;
+    i {
+      color: #999;
+    }
   }
 }
 .pagenations {
@@ -77,6 +83,7 @@ a , a:focus, a:hover{
           &:hover, &:focus {
             color: #fff;
             background-color: #1e96d5;
+            box-shadow: none;
           }
         }
       }
