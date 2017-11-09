@@ -4,7 +4,6 @@ import Home from '@/components/Home';
 import Signin from '@/components/user/Signin';
 import Recharge from '@/components/recharge/Recharge';
 import NotCompleted from '@/components/recharge/NotCompleted';
-import Completed from '@/components/recharge/Completed';
 import Demo from '@/components/demo/Demo';
 import Operation from '@/components/operation/Operation';
 import Activity from './activity';
@@ -30,7 +29,7 @@ const routes = [
           }, {
             path: 'completed',
             name: 'completed',
-            component: Completed
+            component: NotCompleted
           }
         ]
       }, {

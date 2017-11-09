@@ -25,7 +25,12 @@
 
 <script>
 export default {
-  name: 'wechat-signin'
+  name: 'wechat-signin',
+  created() {
+    if (this.$route.name === 'wechat-signin') {
+      this.$router.replace({ name: 'basics' });
+    }
+  }
 };
 </script>
 

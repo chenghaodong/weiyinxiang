@@ -3,37 +3,37 @@
     <form class="padding-bottom  line-bottom">
       <div class="form-list padding-bottom line-bottom">
         <span class="checkbox">公众号签到关键字</span>
-        <input type="text" class="form-control key-input" placeholder="请输入公众号签到关键字">
+        <b-form-input type="text" class="form-control key-input" placeholder="请输入公众号签到关键字"></b-form-input>
       </div>
       <div class="form-list padding-top wx-name">
         <span class="checkbox">获取微信用户名称</span>
         <input type="checkbox" class="checkbox-switch1" />
-        <span class="name hide">微信用户</span>
-        <input type="text" class="form-control key-input hide" placeholder="请输入微信用户名称">
+        <span class="name">微信用户</span>
+        <b-form-input type="text" class="form-control key-input" placeholder="请输入微信用户名称"></b-form-input>
       </div>
       <div class="form-list padding-top wx-company">
         <span class="checkbox">填入公司名称</span>
         <input type="checkbox" class="checkbox-switch2" />
-        <span class="name show">公司名称</span>
-        <input type="text" class="form-control key-input show" placeholder="请输入公司名称">
+        <span class="name">公司名称</span>
+        <b-form-input type="text" class="form-control key-input" placeholder="请输入公司名称"></b-form-input>
       </div>
       <div class="form-list padding-top wx-position">
         <span class="checkbox">填入人员职位</span>
         <input type="checkbox" class="checkbox-switch3" />
-        <span class="name hide">职位名称</span>
-        <input type="text" class="form-control key-input hide" placeholder="请输入职位名称">
+        <span class="name">职位名称</span>
+        <b-form-input type="text" class="form-control key-input" placeholder="请输入职位名称"></b-form-input>
       </div>
       <div class="form-list padding-top wx-phone">
         <span class="checkbox">填入手机号码</span>
         <input type="checkbox" class="checkbox-switch4" />
-        <span class="name show">手机号码</span>
-        <input type="text" class="form-control key-input show" placeholder="请输入手机号码">
+        <span class="name">手机号码</span>
+        <b-form-input type="text" class="form-control key-input" placeholder="请输入手机号码"></b-form-input>
       </div>
       <div class="form-list padding-top wx-email">
         <span class="checkbox">填入邮箱地址</span>
         <input type="checkbox" class="checkbox-switch5" />
-        <span class="name show">邮箱地址</span>
-        <input type="text" class="form-control key-input show" placeholder="请输入邮箱地址">
+        <span class="name">邮箱地址</span>
+        <b-form-input type="email" class="form-control key-input" placeholder="请输入邮箱地址"></b-form-input>
       </div>
     </form>
     <div class="padding-top padding-bottom line-bottom">
@@ -42,10 +42,10 @@
         <div class="left">
           <p class="padding-top padding-left wx-setting-title">字体颜色</p>
           <div id="cp2" class="input-group colorpicker-component padding-left">
-            <input type="text" value="#1e96d5" class="form-control color-input" />
+            <input type="text" v-model="color" class="form-control color-input" :style="{color: color}"/>
             <span class="input-group-addon">
-              <i></i>
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+              <color-picker v-model="color" @change="onChange"></color-picker>
+              <i class="icon iconfont">&#xe655;</i>
             </span>
           </div>
           <p class="padding-top padding-left wx-setting-title">背景</p>
@@ -80,29 +80,53 @@
 <script>
 import 'weatherstar-switch/dist/switch.css';
 import Switch from 'weatherstar-switch';
+import { VueColorpicker } from 'vue-pop-colorpicker';
+import rgbHex from 'rgb-hex';
 
 export default {
   name: 'basics',
-  created() {
-    const el = document.querySelector('.checkbox-switch1');
-    const mySwitch = new Switch(el, {
-      checked: true,
-      onSwitchColor: '#1e96d5'
+  components: {
+    'color-picker': VueColorpicker
+  },
+  data() {
+    return {
+      switches: {},
+      switchConfig: {
+        'checkbox-switch1': this.options(false),
+        'checkbox-switch2': this.options(true),
+        'checkbox-switch3': this.options(false),
+        'checkbox-switch4': this.options(true),
+        'checkbox-switch5': this.options(true)
+      },
+      color: '#1e96d5'
+    };
+  },
+  mounted() {
+    Object.keys(this.switchConfig).forEach((key) => {
+      this.switches[key] = new Switch(document.querySelector(`.${key}`), this.switchConfig[key]);
     });
-    console.log(mySwitch);
   },
   methods: {
-    options(dom, checked) {
+    options(checked) {
       return {
         checked: checked,
-        onSwitchColor: '#1e96d5'
+        onSwitchColor: '#1e96d5',
+        onChange() {
+          console.log('1111');
+        }
       };
+    },
+    initSwith(el, checked) {
+      const mySwitch = new Switch(el, this.SwithOptions(checked));
+    },
+    onChange(color) {
+      this.color = `#${rgbHex(color)}`;
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .tab-pane {
   margin-top: 30px;
 }
@@ -157,11 +181,23 @@ export default {
 .colorpicker-component .input-group-addon {
   border: none;
   background: transparent;
-  padding: 3px 12px;
-}
-
-span .glyphicon-pencil {
-  margin-left: 5px;
+  padding: 0px 12px;
+  .vue-colorpicker {
+    height: 20px;
+    width: 44px;
+    border: none;
+    padding: 0;
+    text-align: left;
+    position: absolute;
+  }
+  .vue-colorpicker-btn {
+    width: 20px;
+    height: 20px;
+    border: none;
+  }
+  i {
+    margin-left: 28px;
+  }
 }
 
 .list-img {

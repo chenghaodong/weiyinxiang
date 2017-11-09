@@ -28,6 +28,7 @@ module.exports = {
     'consistent-return': ["off"],
     'no-constant-condition': ["off"],
     'object-shorthand': ["off"],
+    'no-unused-vars': ['warn'],
     'import/newline-after-import': ["off"],
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {

@@ -7,8 +7,10 @@
         <i class="icon iconfont"> &#xe647;</i> 绑定公众号
       </p>
       <div>
-        <input type="radio" name="wechat" checked> 系统公众号
-        <input type="radio" name="wechat" class="customer"> 自定义公众号
+        <b-form-radio-group v-model="wechat" name="wechat">
+          <b-form-radio value="unlock">系统公众号</b-form-radio>
+          <b-form-radio value="custom">自定义公众号</b-form-radio>
+        </b-form-radio-group>
       </div>
       <div class="form-list padding-top">
         <span class="checkbox">微信公众号名称</span>
@@ -29,7 +31,12 @@
 
 <script>
 export default {
-  name: 'wechat'
+  name: 'wechat',
+  data() {
+    return {
+      wechat: 'unlock'
+    };
+  }
 };
 </script>
 

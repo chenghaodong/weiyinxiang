@@ -56,8 +56,9 @@
       </div>
     </div>
     <Pagenation v-if="activityList.length>0" :total="100" :size="10" :page="5" @changePage="changePages"></Pagenation>
-    <b-modal v-model="modalShow">
-      Hello From Modal!
+    <b-modal v-model="modalShow" title="创建我的活动" ok-title="确定" cancel-title="取消">
+      <label for="input-valid">活动名称</label>
+      <b-form-input type="text" placeholder="Valid input"></b-form-input>
     </b-modal>
     <div class="no-data" v-if="!activityList|| activityList.length === 0">
       <p class="tip">
@@ -146,6 +147,13 @@ export default {
         font-size: 18px;
         font-weight: bold;
       }
+    }
+    .btn-info {
+      width: 150px;
+      height: 38px;
+      background-color: #1e96d5;
+      padding: 0;
+      cursor: pointer;
     }
   }
   .item {

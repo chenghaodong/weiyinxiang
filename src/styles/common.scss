@@ -11,6 +11,10 @@ p {
 a , a:focus, a:hover{
   text-decoration: none;
   color: #1e96d5;
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
 }
 .line-bottom {
   border-bottom: 1px dashed #ccc;
@@ -104,5 +108,16 @@ a , a:focus, a:hover{
     .customer-color {
       font-weight: bold;
     }
+  }
+}
+.modal-body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  label {
+    margin-right: 17px;
+  }
+  .form-control{
+    width: 80%;
   }
 }

@@ -55,7 +55,12 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'activitySetting',
+  created() {
+    if (this.$route.name === 'activitySetting') {
+      this.$router.replace({ name: 'basic' });
+    }
+  }
 };
 </script>
 

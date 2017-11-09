@@ -47,6 +47,11 @@ export default {
         count: 1000
       }
     };
+  },
+  created() {
+    if (this.$route.name === 'recharge') {
+      this.$router.replace({ name: 'not-completed' });
+    }
   }
 };
 </script>
